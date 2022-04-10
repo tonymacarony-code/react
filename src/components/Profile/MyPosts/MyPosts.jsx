@@ -10,8 +10,8 @@ const MyPosts = (props) => {
         <button>Add Post</button>
       </div>
       <div className={s.posts}>
-        <Post name="Tony" likescount="5" />
-        <Post name="Macarony" likescount="3" />
+        <Post name="Tony" likesCount="5" />
+        <Post name="Macarony" likesCount="3" />
         <Post name="Peperony" />
         <Post name="Mascarpony" />
       </div>

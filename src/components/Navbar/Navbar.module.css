@@ -6,6 +6,9 @@
   color: brown;
 }
 
-.item.active {
-  color: black;
+.item a.active {
+  color: gold;
+}
+a {
+  text-decoration: none;
 }

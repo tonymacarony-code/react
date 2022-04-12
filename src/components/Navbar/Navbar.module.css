@@ -5,8 +5,7 @@
 .item {
   color: brown;
 }
-
-.item a.active {
+.active {
   color: gold;
 }
 a {

@@ -14,5 +14,10 @@
   padding: 10px;
 }
 
-.message {
+.flex img {
+  max-width: 20px;
+}
+.flex {
+  display: flex;
+  align-items: center;
 }

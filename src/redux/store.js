@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+import { sidebarReducer } from "./sidebar-reducer";
+
 let store = {
   _state: {
     dialogsPage: {
@@ -29,6 +33,7 @@ let store = {
         { id: 3, message: "gre korm suka" },
         { id: 4, message: "dolboeby blayt'" },
       ],
+      newMessageBody: "",
     },
     profilePage: {
       posts: [
@@ -40,31 +45,25 @@ let store = {
       newPostText: "",
     },
   },
-  getState() {
-    return this._state;
-  },
   _subscriber() {
     console.log("ok");
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0,
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._subscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._subscriber(this._state);
+  getState() {
+    return this._state;
   },
 
-  _subscribe(observer) {
+  subscribe(observer) {
     this._subscriber = observer;
   },
+  dispatch(action) {
+    // {type : ""} ВСЕГДА БУДЕТ ИМЕТЬ ТИП
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+    this._subscriber(this._state);
+  },
 };
+
 export default store;
 
 // let rerenderEntireTree = null;

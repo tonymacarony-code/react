@@ -9,8 +9,7 @@ const Profile = (props) => {
       <ProfileInfo src="https://hips.hearstapps.com/wdy.h-cdn.co/assets/17/39/1506709524-cola-0247.jpg?crop=1.00xw:0.750xh;0,0.214xh&resize=600:*" />
       <MyPosts
         posts={props.profilePage.posts}
-        addPost={props.addPost}
-        newPostText={props.profilePage.newPostText}
+        dispatch={props.dispatch}
         updateNewPostText={props.updateNewPostText}
       />
     </div>

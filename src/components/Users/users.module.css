@@ -1,4 +1,14 @@
-.userPhoto {
-  width: 20px;
-  height: 20px;
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+.selectedPage {
+  font-weight: bold;
+}
+span {
+  margin-right: 10px;
+  cursor: pointer;
 }

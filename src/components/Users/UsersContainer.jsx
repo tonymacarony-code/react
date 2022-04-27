@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Users from "./Users";
-import preloader from "../../assets/img/load.svg";
 import * as axios from "axios";
 import {
   follow,
@@ -22,7 +21,7 @@ class UsersContainer extends React.Component {
       .then((response) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsersTotalCount(response.data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {

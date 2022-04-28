@@ -2,9 +2,7 @@ import React from "react";
 import s from "./users.module.css";
 import userPhoto from "../../assets/img/user.jpg";
 import { NavLink } from "react-router-dom";
-import { unFollow } from "../../api/api";
-import { toFollow } from "./../../api/api";
-import { toggleFollowingProgress } from "./../../redux/users-reducer";
+import { usersAPI } from "../../api/api";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -46,13 +44,7 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    unFollow(u.id).then((data) => {
-                      if (data.resultCode == 0) {
-                        props.unfollow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
+                    props.unfollow(u.id);
                   }}
                 >
                   Unfollow
@@ -61,13 +53,7 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, u.id);
-                    toFollow(u.id).then((data) => {
-                      if (data.resultCode == 0) {
-                        props.follow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
+                    props.follow(u.id);
                   }}
                 >
                   Follow

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
 import Preloader from "./../../common/Preloader/Preloader";
-
+import ProfileStatus from "./ProfileStatus";
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
           }
           alt=""
         />
-        ava+desc
+        <ProfileStatus status={"Hello!!"} />
       </div>
     </div>
   );

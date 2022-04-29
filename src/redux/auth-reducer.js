@@ -1,14 +1,13 @@
 import { authAPI } from "../api/api";
 
 const SET_USER_DATA = "SET_USER_DATA";
-const UNFOLLOW = "UNFOLLOW";
+
 
 let initialState = {
   userId: null,
   email: null,
   login: null,
   isAuth: false,
-  //   isFetching: false,
 };
 
 const authReducer = (state = initialState, action) => {

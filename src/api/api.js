@@ -25,6 +25,14 @@ export const authAPI = {
   authMe() {
     return instance.get(`auth/me`).then(({ data }) => data);
   },
+  login(email, password, rememberMe = false) {
+    return instance
+      .post(`auth/login`, { email, password, rememberMe })
+      .then(({ data }) => data);
+  },
+  logout() {
+    return instance.delete(`auth/login`).then(({ data }) => data);
+  },
 };
 
 export const singleUserAPI = {

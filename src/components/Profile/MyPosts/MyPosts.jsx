@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import s from "../MyPosts/MyPosts.module.css";
+import AddMyPost from "./AddMyPosts";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
@@ -28,14 +29,7 @@ const MyPosts = (props) => {
       <h3>My Posts</h3>
       <div>
         <div>
-          <textarea
-            onChange={onPostChange}
-            ref={newPostElement}
-            value={props.newPostText}
-          />
-        </div>
-        <div>
-          <button onClick={onAddPost}>Add Post</button>
+          <AddMyPost addPost={props.addPost} />
         </div>
       </div>
       <div className={s.posts}>{postsElements}</div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
+import AddMessageForm from "./AddMessageForm";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
@@ -14,15 +15,15 @@ const Dialogs = (props) => {
   let messagesElements = state.messages.map((m) => (
     <Message message={m.message} key={m.id} />
   ));
-  let newMessageBody = state.newMessageBody;
 
   let newMessage = React.createRef();
 
-  let onSendMessageClick = () => {
-    props.sendMessage();
-  };
+  // let onSendMessageClick = () => {
+  //   props.sendMessage();
+  // };
   let onNewMessageChange = (e) => {
     let body = e.target.value;
+    console.log(body);
     props.updateNewMessageBody(body);
   };
 
@@ -34,15 +35,11 @@ const Dialogs = (props) => {
           <div>{messagesElements}</div>
           <div>
             <div>
-              <textarea
-                value={newMessageBody}
-                onChange={onNewMessageChange}
-                ref={newMessage}
-                placeholder="Enter here!"
-              ></textarea>
-            </div>
-            <div>
-              <button onClick={onSendMessageClick}>Send</button>
+              <AddMessageForm
+                val={props.dialogsPage.newMessageBody}
+                onNewMessageChange={onNewMessageChange}
+                sendMessage={props.sendMessage}
+              />
             </div>
           </div>
         </div>

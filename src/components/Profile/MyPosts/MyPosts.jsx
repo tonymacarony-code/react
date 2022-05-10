@@ -4,7 +4,7 @@ import s from "../MyPosts/MyPosts.module.css";
 import AddMyPost from "./AddMyPosts";
 import Post from "./Post/Post";
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
   let postsElements = props.posts.map((p) => (
     <Post
       message={p.message}
@@ -35,6 +35,6 @@ const MyPosts = (props) => {
       <div className={s.posts}>{postsElements}</div>
     </div>
   );
-};
+});
 
 export default MyPosts;

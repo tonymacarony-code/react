@@ -15,12 +15,10 @@ let reducers = combineReducers({
   app: appReducer,
 });
 
-let store = createStore(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
   reducers,
-  compose(
-    applyMiddleware(thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : (f) => f
-  )
+  composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 
 export default store;

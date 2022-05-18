@@ -5,9 +5,7 @@
 
   border-radius: 50%;
 }
-.selectedPage {
-  font-weight: bold;
-}
+
 span {
   margin-right: 10px;
   cursor: pointer;

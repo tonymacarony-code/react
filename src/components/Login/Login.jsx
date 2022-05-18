@@ -10,15 +10,6 @@ const Login = (props) => (
       initialValues={{ email: "", password: "", rememberMe: false }}
       validate={(values) => {
         return {};
-        // const errors = {};
-        // if (!values.email) {
-        //   errors.email = "Required";
-        // } else if (
-        //   !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        // ) {
-        //   errors.email = "Invalid email address";
-        // }
-        // return errors;
       }}
       onSubmit={(values) => {
         console.log(values);
@@ -54,38 +45,3 @@ const Login = (props) => (
 );
 
 export default connect(null, { login })(Login);
-
-// import { Form, Field } from "react-final-form";
-// import { login } from './../../redux/auth-reducer';
-// const LoginForm = (props) => {
-// //   const onSubmit = (values) => {};
-// //   const validate = (values) => {
-// //     console.log(values);
-// //   };
-
-//   return (
-//     <Form
-//       onSubmit={onSubmit}
-//       validate={validate}
-//       render={({ handleSubmit }) => (
-//         <form onSubmit={handleSubmit}>
-//           <Field name="firstName" component="input" placeholder="First Name" />
-//           <Field name="password" component="input" placeholder="Password" />
-
-//           <button type="sumbit">Sumbit</button>
-//         </form>
-//       )}
-//     ></Form>
-//   );
-// };
-
-// const Login = (props) => {
-//   return (
-//     <div>
-//       <h1>Login</h1>
-//       <LoginForm />
-//     </div>
-//   );
-// };
-
-// export default Login;
